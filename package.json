@@ -1,0 +1,22 @@
+{
+  "name": "prtklbdg-circuit",
+  "version": "1.0.0",
+  "description": "protokol bandung with circuit breaker pattern",
+  "main": "index.js",
+  "dependencies": {
+    "promise-circuitbreaker": "^1.0.2",
+    "prtklbdg": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "protokol",
+    "bandung",
+    "circuit",
+    "voucha"
+  ],
+  "author": "Dhi Aurrahman <diorahman@rockybars.com>",
+  "license": "MIT"
+}

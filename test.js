@@ -1,17 +1,20 @@
-var createCircuit = require('./pb-circuit');
+var createCircuit = require('./');
 var circuit  = createCircuit(require('./config.json'));
 
-
-
-
-circuit.balance.exec('hihi')
-.then(function(value){
-  console.log(value);
-})
-.catch(circuit.TimeoutError, function(error) {})
-.catch(circuit.OpenCircuitError, function(error) {})
-.catch(function(error) {})
-.finally(function(){
-  circuit.echo.stopEvents();
+describe('Test the prtklbdg circuit', function(){
+  it ('test the echo circuit', function(done){
+    circuit.echo.exec('hihi')
+    .then(function(value){
+      value.should.equal('.hihi.');
+    })
+    .catch(circuit.TimeoutError, function(err){ console.log('circuit.TimeoutError'); })
+    .catch(circuit.OpenCircuitError, function(){ console.log('circuit.OpenCircuitError'); })
+    .catch(done)
+    .finally(function(){
+      circuit.echo.stopEvents();
+      done();
+    });
+  });
 });
+
 
